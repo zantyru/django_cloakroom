@@ -5,4 +5,4 @@ from cloakroom.models import Badge
 class BadgeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Badge
-        fields = ["label", "state"]
+        fields = ["id", "label", "state"]
