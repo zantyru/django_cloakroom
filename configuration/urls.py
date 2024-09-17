@@ -17,16 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from restapi import views
+import cloakroom.urls
+import restapi.views
 
 
 router = routers.DefaultRouter()
-router.register(r"badges", views.BadgeViewSet)
+router.register(r"badges", restapi.views.BadgeViewSet)
 
 
 urlpatterns = [
 # apps
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("cloakroom/", include(cloakroom.urls)),
 # rest api
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("api/v1/cloakroom/", include(router.urls)),
