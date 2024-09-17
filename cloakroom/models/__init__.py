@@ -1,4 +1,4 @@
-from cloakroom.models import Badge
+from cloakroom.models.Badge import Badge
 
 
 __all__ = [
